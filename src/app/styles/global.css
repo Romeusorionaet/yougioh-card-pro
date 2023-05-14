@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+ @apply box-border m-0 p-0
+}
+
+body {
+    @apply h-screen text-white
+}
+
+li {
+   font-size: 1.1rem;
+}
+
+li:hover {
+  text-shadow: 0px 12px 5px gray;
+}
+
+li:active {
+  transform: translateY(-10px);
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: gray;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: green;
+  }
+}

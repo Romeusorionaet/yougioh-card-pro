@@ -1,0 +1,26 @@
+@tailwind components;
+
+@layer components {
+    .STYLE-NAV-MOBILE {
+        @apply 
+        h-60 w-screen
+        rounded-lg
+        absolute flex flex-col justify-evenly 
+        text-xl
+        bg-gradient-to-r from-blue-950
+        pl-10
+    }
+    
+    .STYLE-NAV-DESKTOP {
+        @apply 
+        h-4 w-30
+        flex justify-evenly items-center
+        text-xl
+        rounded-xl
+        bg-gradient-to-r from-blue-950/10 via-blue-950 to-blue-950/10
+    }
+    
+    .CARD-MENU-BLACK-HOLE {
+        @apply h-5 w-5 z-10 
+    }
+}

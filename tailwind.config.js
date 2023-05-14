@@ -7,10 +7,42 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      width: {
+        '1': '1rem',
+        '2': '2rem',
+        '3': '3rem',
+        '4': '4rem',
+        '5': '5rem',
+        '6': '6rem',
+        '10': '10rem',
+        '15': '15rem',
+        '14': '14rem',
+        '20': '20rem',
+        '30': '30rem',
+      },
+      
+      height: {
+        '1': '1rem',
+        '2': '2rem',
+        '3': '3rem',
+        '4': '4rem',
+        '5': '5rem',
+        '6': '6rem',
+        '10': '10rem',
+        '15': '15rem',
+        '20': '20rem',
+        '25': '25rem',
+        '38': '38rem',
+        '44': '44rem',
+        '57': '57rem',
+      },
+
+      animation: {
+        'pulse-slow': 'pulse 3s linear',
+      },
+
+      screens: {
+        'tablet': '800px',
       },
     },
   },
