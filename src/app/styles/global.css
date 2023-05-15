@@ -15,11 +15,11 @@ li {
 }
 
 li:hover {
-  text-shadow: 0px 12px 5px gray;
+  color: white;
 }
 
 li:active {
-  transform: translateY(-10px);
+  transform: translateY(5px);
 }
 
 @layer utilities {
@@ -33,5 +33,13 @@ li:active {
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
     background: green;
+  }
+
+  .bgChat {
+    background-image: url('../../../public/bg-Egypt/g3.jpg')
+  }
+
+  .bgCards {
+    background-image: url('../../../public/bg-Egypt/g2.jpg')
   }
 }

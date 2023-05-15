@@ -7,7 +7,6 @@ interface Props {
 import PaginationOfCards from '@mui/material/Pagination';
 
 export function PaginationCards({pages, setCurrentPage, setValueToScroll}: Props) {
-  
     return(
         <div>
             <PaginationOfCards 

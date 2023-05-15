@@ -52,7 +52,7 @@ export default function RootLayout({
       <body>
 
         <nav 
-        className='fixed'>
+        className='fixed z-10'>
 
           <div className='relative w-screen'>
             <input 

@@ -14,7 +14,7 @@ export function Chat({text}: Props) {
               <BsThreeDots />
             </div>
 
-            <div className='max-w-3xl bg-gradient-to-t from-cyan-900 rounded-lg p-2'>
+            <div className='max-w-3xl bg-gradient-to-t from-zinc-900 rounded-lg p-2'>
                 {text}
             </div>
 
