@@ -14,9 +14,10 @@ import { api } from './services/api';
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
-interface CardDetails {
+interface CardDetailsProps {
   name: string;
   key: string;
+  _id: string;
 }
 
 export default function Home() {
@@ -61,15 +62,23 @@ export default function Home() {
 
   ///////////////////////////////////////////////
   const { push } = useRouter();
-  const [cardDetails, setCardDetails] = useState<CardDetails>({name: "", key: ""})
+  const [cardDetails, setCardDetails] = useState<CardDetailsProps>({
+    name: "", 
+    key: "",
+    _id: "",
+  })
 
-  const handleCardDetails = async (id: string) => {
+  const handleCardDetails = async (id: string, value: boolean) => {
     await api.get(`/posts/${id}`)
     .then(response => setCardDetails(response.data))
     .catch(err => console.log(err));
 
     if( window.innerWidth <= 800){
-      return push(`/Details/${id}`)
+
+      return push(`/Details/${id}`);
+    }else if(value === true){
+
+      return push(`/Details/${id}`);
     }
   }
 
@@ -183,15 +192,17 @@ export default function Home() {
                 className='w-20 h-10 px-2 flex flex-col justify-center items-center gap-5'>
 
                   {cardDetails &&
-                  cardDetails.name === '' ?
+                  (cardDetails.name === '') || (window.innerWidth <= 800) ?
                   <p className='text-gray-400'> Choose an image </p>
                   :
-                  <Image 
-                  width='300'
-                  height='0'
-                  src={`${api.defaults.baseURL}/posts/${cardDetails.key}`} 
-                  alt={`Card ${cardDetails.name}`} 
-                  />
+                  <div onClick={()=>handleCardDetails(cardDetails._id, true)}>
+                    <Image 
+                    width='300'
+                    height='0'
+                    src={`${api.defaults.baseURL}/posts/${cardDetails.key}`} 
+                    alt={`Card ${cardDetails.name}`} 
+                    />
+                  </div>
                   }
 
                   <div className='relative'>
@@ -227,7 +238,7 @@ export default function Home() {
                     currentItems.map((item: any, index: number)=>{
                       return(
                         <div
-                        onClick={()=>handleCardDetails(item._id)}
+                        onClick={()=>handleCardDetails(item._id, false)}
                         className='item flex flex-col' 
                         key={String(index)}>
 
