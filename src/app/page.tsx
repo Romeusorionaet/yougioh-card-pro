@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation';
 
 interface CardDetailsProps {
   name: string;
-  key: string;
+  img: string;
   _id: string;
 }
 
@@ -32,7 +32,7 @@ export default function Home() {
   const { push } = useRouter();
   const [cardDetails, setCardDetails] = useState<CardDetailsProps>({
     name: "", 
-    key: "",
+    img: "",
     _id: "",
   });
   
@@ -131,58 +131,62 @@ export default function Home() {
         </div>
 
         <section 
-        className="max-w-screen overflow-auto scrollbar bgChat bg-no-repeat bg-cover
-        bg-gradient-to-b from-black via-cyan-900 to-black pb-10
+        className="pb-10 max-w-screen overflow-auto scrollbar 
+        
+        bg-gradient-to-b from-black via-cyan-900 to-black 
         ">
+          <div className='bgChat bg-no-repeat bg-right'>
 
-          <div className='text-end' dir='rtl'>
-            <Chat 
-              text='.Olá, estou procurando informações sobre Yu-Gi-Oh'
-            />
+            <div className='text-end' dir='rtl'>
+              <Chat 
+                text='.Olá, estou procurando informações sobre Yu-Gi-Oh'
+              />
+            </div>
+
+            <div>
+              <Chat 
+                text='Bem vindo! Este site é dedicado a Yu-Gi-Oh.'
+              />
+            </div>
+
+            <div className='text-end' dir='rtl'>
+              <Chat 
+                text='?O que posso explorar'
+              />
+            </div>
+
+            <div>
+              <Chat 
+                text='Este site apresenta um extenso catálogo de cartas do jogo. 
+                Os usuários podem explorar todas as cartas disponíveis e, ao 
+                clicar em cada uma delas, têm acesso a mais detalhes e 
+                informações específicas sobre cada carta.'
+              />
+            </div>
+
+            <div>
+              <Chat 
+                text='Logo na seção a seguir se encontra todas as cartas disponíveis
+                ou se preferir, pesquise por alguma carta especifica e ao clicar, podendo visualizar
+                com mais detalhes a carta selecionada.'
+              />
+            </div>
+
+            <div className='text-end' dir='rtl'>
+              <Chat 
+                text='?Para que serve a opção "Deck" que se encontra no menu'
+              />
+            </div>
+
+            <div>
+              <Chat 
+                text='Na opção "Deck" do menu, geramos aleatoriamente 50 cartas que
+                simula um Deck. É apenas uma função para 
+                gerar 50 cartas.'
+              />
+            </div>
           </div>
 
-          <div>
-            <Chat 
-              text='Bem vindo! Este site é dedicado a Yu-Gi-Oh.'
-            />
-          </div>
-
-          <div className='text-end' dir='rtl'>
-            <Chat 
-              text='?O que posso explorar'
-            />
-          </div>
-
-          <div>
-            <Chat 
-              text='Este site apresenta um extenso catálogo de cartas do jogo. 
-              Os usuários podem explorar todas as cartas disponíveis e, ao 
-              clicar em cada uma delas, têm acesso a mais detalhes e 
-              informações específicas sobre cada carta.'
-            />
-          </div>
-
-          <div>
-            <Chat 
-              text='Logo na seção a seguir se encontra todas as cartas disponíveis
-              ou se preferir, pesquise por alguma carta especifica e ao clicar, podendo visualizar
-              com mais detalhes a carta selecionada.'
-            />
-          </div>
-
-          <div className='text-end' dir='rtl'>
-            <Chat 
-              text='?Para que serve a opção "Deck" que se encontra no menu'
-            />
-          </div>
-
-          <div>
-            <Chat 
-              text='Na opção "Deck" do menu, geramos aleatoriamente 50 cartas que
-              simula um Deck. É apenas uma função para 
-              gerar 50 cartas.'
-            />
-          </div>
 
         </section>
 
@@ -215,7 +219,7 @@ export default function Home() {
                     <Image 
                     width='300'
                     height='0'
-                    src={`${api.defaults.baseURL}/posts/${cardDetails.key}`} 
+                    src={`${api.defaults.baseURL}/posts/${cardDetails.img}`} 
                     alt={`Card ${cardDetails.name}`} 
                     />
                   </div>
@@ -261,7 +265,7 @@ export default function Home() {
 
                           <Image width='150' height='100' 
                           placeholder = 'empty'
-                          src={`${api.defaults.baseURL}/posts/${item.key}`} alt='card' />
+                          src={`${api.defaults.baseURL}/posts/${item.img}`} alt='card' />
                         </div>
                       )
                   })}
