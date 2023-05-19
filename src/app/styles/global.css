@@ -42,4 +42,10 @@ li:active {
   .bgCards {
     background-image: url('../../../public/bg-Egypt/g2.jpg')
   }
+
+  .cardTags > li > span{
+    background: blue;
+    border-radius: 10%;
+    padding: 5px;
+  }
 }

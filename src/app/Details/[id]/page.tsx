@@ -61,27 +61,41 @@ export default function Details({ params }: DetailsProps) {
       },[nameImgFormatted]);
 
     return(
-        <div className="bg-slate-900 h-full">
-            {/* <h1>{nameImgFormatted}</h1>
-            <hr/>
-            <h1>Product: {params.id}</h1> */}
+        <div className="bg-slate-900 pt-28">
             {cardInfo && 
-            cardInfo.map((card)=>{
-              return(
-                <div key={String(card.id)}>
-                  <span>{card.desc}</span>
-                </div>
-              )
-            })
-            }
+              cardInfo.map((card)=>{
+                return(
+                  <div className="space-y-10" key={String(card.id)}>
 
-            {cardDetails.img &&
-            <Image 
-            width='300'
-            height='100'
-            src={`${api.defaults.baseURL}/posts/${cardDetails.img}`} 
-            alt={`Card ${cardDetails.name}`} 
-            />
+                    <div className="tablet:w-28 h-34">
+                    {cardDetails.img &&
+                      <Image 
+                      className="p-2 h-full w-full"
+                      width='300'
+                      height='100'
+                      src={`${api.defaults.baseURL}/posts/${cardDetails.img}`} 
+                      alt={`Card ${cardDetails.name}`} 
+                      />
+                      }
+                    </div>
+
+                    <div className="leading-relaxed space-y-5 px-4">
+                      <h1 className="text-3xl text-center">{card.name}</h1>
+                      <p className="text-2xl">{card.desc}</p>
+                    </div>
+                    
+                    <div className="">
+                      <ul className="cardTags space-y-2">
+                        <li> Archetype: <span>{card.archetype}</span></li>
+                        <li> FrameType: <span>{card.frameType}</span></li>
+                        <li> Race: <span>{card.race}</span></li>
+                        <li> Type: <span>{card.type}</span></li>
+                      </ul>
+                    </div>
+
+                  </div>
+                )
+              })
             }
         </div>
     )
