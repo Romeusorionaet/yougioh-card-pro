@@ -42,7 +42,6 @@ export default function Home() {
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = card.slice(startIndex, endIndex);
-  console.log(pages)
 
   useEffect(()=>{
     async function searchCard() {
@@ -132,10 +131,9 @@ export default function Home() {
 
         <section 
         className="pb-10 max-w-screen overflow-auto scrollbar 
-        
-        bg-gradient-to-b from-black via-cyan-900 to-black 
+        bg-gradient-to-b from-black to-black 
         ">
-          <div className='bgChat bg-no-repeat bg-right'>
+          <div className=''>
 
             <div className='text-end' dir='rtl'>
               <Chat 

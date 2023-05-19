@@ -90,7 +90,7 @@ export default function RootLayout({
               : 
               'hidden'
               }>
-              <li><Link href='#'>Home</Link></li>
+              <li><Link href='/'>Home</Link></li>
               <li><Link href='#'>Deck</Link></li>
               <li><Link href='#'>About</Link></li>
             </ul>

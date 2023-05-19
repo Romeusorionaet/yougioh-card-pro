@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { api } from '../../services/api';
 import Image from 'next/image';
+import Link from "next/link";
 
 interface DetailsProps {
     params: {
@@ -37,9 +38,11 @@ export default function Details({ params }: DetailsProps) {
 
     useEffect(()=>{
         async function handleCard() {
-          await api.get(`/posts/${params.id}`)
-          .then(response => setCardDetails(response.data))
-          .catch(err => console.log(err));
+          if(!cardInfo){
+            await api.get(`/posts/${params.id}`)
+            .then(response => setCardDetails(response.data))
+            .catch(err => console.log(err));
+          }
         }
         handleCard();
     });
@@ -61,11 +64,16 @@ export default function Details({ params }: DetailsProps) {
       },[nameImgFormatted]);
 
     return(
-        <div className="bg-slate-900 pt-28">
+        <div className="bg-slate-900 max-tablet:pt-22 pt-28 min-h-screen flex items-center justify-center">
+
             {cardInfo && 
               cardInfo.map((card)=>{
                 return(
-                  <div className="space-y-10" key={String(card.id)}>
+                  <div className="pb-1 tablet:flex relative" key={String(card.id)}>
+                    <Link 
+                    href="/"
+                    className="absolute -top-10 left-2">Voltar
+                    </Link>
 
                     <div className="tablet:w-28 h-34">
                     {cardDetails.img &&
@@ -79,13 +87,11 @@ export default function Details({ params }: DetailsProps) {
                       }
                     </div>
 
-                    <div className="leading-relaxed space-y-5 px-4">
+                    <div className="leading-relaxed pt-2 flex flex-col gap-5 justify-evenly bg-gradient-to-t from-slate-800 px-4 rounded-xl max-w-xl ">
                       <h1 className="text-3xl text-center">{card.name}</h1>
-                      <p className="text-2xl">{card.desc}</p>
-                    </div>
-                    
-                    <div className="">
-                      <ul className="cardTags space-y-2">
+                      <p className="text-xl">{card.desc}</p>
+                   
+                      <ul className="cardTags space-y-2 bg-slate-900 p-2 rounded-sm">
                         <li> Archetype: <span>{card.archetype}</span></li>
                         <li> FrameType: <span>{card.frameType}</span></li>
                         <li> Race: <span>{card.race}</span></li>
