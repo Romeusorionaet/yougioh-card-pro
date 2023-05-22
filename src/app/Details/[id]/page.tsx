@@ -25,10 +25,14 @@ interface CardInfoProps {
     name: string;
     race: string;
     type: string;
+    attribute: string;
+    level: number;
+    scale: number;
 
-    card_sets: string[];
-    card_images: string[];
-    card_prices: string[];
+    atk: number;
+    def: number;
+
+    card_sets?: [set_rarity: string];
 }
 
 export default function Details({ params }: DetailsProps) {
@@ -63,6 +67,8 @@ export default function Details({ params }: DetailsProps) {
 
       },[nameImgFormatted]);
 
+      console.log(cardInfo)
+
     return(
         <div className="bg-slate-900 max-tablet:pt-22 pt-28 min-h-screen flex items-center justify-center">
 
@@ -92,10 +98,16 @@ export default function Details({ params }: DetailsProps) {
                       <p className="text-xl">{card.desc}</p>
                    
                       <ul className="cardTags space-y-2 bg-slate-900 p-2 rounded-sm">
-                        <li> Archetype: <span>{card.archetype}</span></li>
-                        <li> FrameType: <span>{card.frameType}</span></li>
-                        <li> Race: <span>{card.race}</span></li>
-                        <li> Type: <span>{card.type}</span></li>
+                        {card.archetype ? <li> Archetype: <span>{card.archetype}</span></li> : ""}
+                        {card.frameType ? <li> FrameType: <span>{card.frameType}</span></li> : ""}
+                        {card.race ? <li> Race: <span>{card.race}</span></li> : ""}
+                        {card.type ? <li> Type: <span>{card.type}</span></li> : ""}
+                        {card.atk ? <li> Atk: <span>{card.atk}</span></li> : ""}
+                        {card.def ? <li> Def: <span>{card.def}</span></li> : ""}
+                        {card.level ? <li> Level: <span>{card.level}</span></li> : ""}
+                        {card.scale ? <li> Scale: <span>{card.scale}</span></li> : ""}
+                        {card.attribute ? <li> Attribute: <span>{card.attribute}</span></li> : ""}
+                        {card.card_sets ? <li> Rarity: <span>{card.card_sets[0].set_rarity}</span></li> : ""}
                       </ul>
                     </div>
 

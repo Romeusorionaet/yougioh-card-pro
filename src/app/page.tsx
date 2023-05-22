@@ -1,7 +1,7 @@
 'use client'
 
+import { AiOutlineArrowDown } from 'react-icons/ai';
 import Image from 'next/image';
-import DragonBlue from '../../public/imgHeader/DragonBlue.png';
 import DragonLogo from '../../public/imgHeader/DrgaonLogo.png';
 import mage from '../../public/imgHeader/mage-bg.png';
 import EyeBall from '../../public/eyeball.png';
@@ -73,7 +73,7 @@ export default function Home() {
     .then(response => setCardDetails(response.data))
     .catch(err => console.log(err));
 
-    if( window.innerWidth <= 800){
+    if( window.innerWidth <= 800 ){
 
       return push(`/Details/${id}`);
     }else if(value === true){
@@ -135,12 +135,6 @@ export default function Home() {
         ">
           <div className=''>
 
-            <div className='text-end' dir='rtl'>
-              <Chat 
-                text='.Olá, estou procurando informações sobre Yu-Gi-Oh'
-              />
-            </div>
-
             <div>
               <Chat 
                 text='Bem vindo! Este site é dedicado a Yu-Gi-Oh.'
@@ -189,8 +183,7 @@ export default function Home() {
         </section>
 
         <section className='tablet:flex bgCards overflow-hidden bg-gradient-to-b from-black to-slate-900 border-t-8 border-cyan-900 h-44'>
-
-              <div className='flex flex-col gap-4 py-2 items-center justify-between bg-gradient-to-t from-cyan-900 tablet:w-30'>
+              <div className='flex flex-col gap-4 py-2 items-center justify-between bg-gradient-to-t from-cyan-600'>
                 <ul 
                 className='flex gap-2 flex-wrap justify-center'>
                   {
@@ -240,7 +233,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div>
+                <div className='flex flex-col items-center'>
+                  {pages === 1 ? <AiOutlineArrowDown className='animate-bounce' /> : ''}
                   <PaginationCards 
                   setCurrentPage={setCurrentPage}
                   pages={pages}
@@ -249,27 +243,24 @@ export default function Home() {
                 </div>
               </div>
 
-            <div 
-            ref={listaRef}
-            className='flex gap-2 flex-wrap justify-center tablet:p-5 py-1 h-25 tablet:h-full overflow-auto scrollbar'>
+              <div 
+              ref={listaRef}
+              className='flex gap-2 flex-wrap justify-center tablet:p-5 py-1 h-25 tablet:h-full overflow-auto scrollbar'>
 
-                  {currentItems &&
-                    currentItems.map((item: any, index: number)=>{
-                      return(
-                        <div
-                        onClick={()=>handleCardDetails(item._id, false)}
-                        className='item flex flex-col' 
-                        key={String(index)}>
+                    {currentItems &&
+                      currentItems.map((item: any, index: number)=>{
+                        return(
+                          <div
+                          onClick={()=>handleCardDetails(item._id, false)}
+                          className='item flex flex-col' 
+                          key={String(index)}>
 
-                          <Image width='150' height='100' 
-                          placeholder = 'empty'
-                          src={`${api.defaults.baseURL}/posts/${item.img}`} alt='card' />
-                        </div>
-                      )
-                  })}
-
-            </div>
-
+                            <Image width='150' height='100' 
+                            src={`${api.defaults.baseURL}/posts/${item.img}`} alt='card' />
+                          </div>
+                        )
+                    })}
+              </div>
         </section>
 
       </main>
