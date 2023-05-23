@@ -35,12 +35,10 @@ li:active {
     background: green;
   }
 
-  .bgChat {
-    background-image: url('../../../public/bg-Egypt/g3.jpg')
-  }
-
   .bgCards {
-    background-image: url('../../../public/bg-Egypt/g2.jpg')
+    background-image: url('../../../public/bg-Egypt/g2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .cardTags > li > span{

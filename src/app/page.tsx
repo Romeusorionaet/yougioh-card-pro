@@ -3,7 +3,6 @@
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import Image from 'next/image';
 import DragonLogo from '../../public/imgHeader/DrgaonLogo.png';
-import mage from '../../public/imgHeader/mage-bg.png';
 import EyeBall from '../../public/eyeball.png';
 import CardMolduraSearch from '../../public/molduraCardForSearchBottom.png';
 
@@ -11,8 +10,10 @@ import { Chat } from './components/Chat';
 import { PaginationCards } from './components/PaginationCards';
 import { api } from './services/api';
 
-import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect, useRef } from 'react';
+
+import {RingLoader} from 'react-spinners';
 
 interface CardDetailsProps {
   name: string;
@@ -21,6 +22,8 @@ interface CardDetailsProps {
 }
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
   const [search, setSearch] = useState<string>('')
   const listaRef = useRef<HTMLDivElement>(null);
   const [valueToScroll, setValueToScroll] = useState<boolean>(false);
@@ -80,7 +83,13 @@ export default function Home() {
     }
   };
 
-  console.log(currentItems)
+  useEffect(()=>{
+    if(currentItems.length === 0){
+      setLoading(true)
+    }else{
+      setLoading(false)
+    }
+  },[currentItems])
 
   return (
     <div>
@@ -206,10 +215,10 @@ export default function Home() {
               </div>
 
               <div 
-              ref={listaRef}
-              className='flex gap-2 flex-wrap justify-center tablet:p-5 py-1 h-25 tablet:h-full overflow-auto scrollbar'>
+                ref={listaRef}
+                className='flex gap-2 flex-wrap justify-center items-center tablet:p-5 py-1 h-25 tablet:h-full overflow-auto scrollbar'>
 
-                    {currentItems &&
+                    {currentItems.length !== 0 ?
                       currentItems.map((item: any, index: number)=>{
                         return(
                           <div
@@ -221,7 +230,15 @@ export default function Home() {
                             src={`${api.defaults.baseURL}/posts/${item.img}`} alt={item.name} />
                           </div>
                         )
-                    })}
+                    })
+                    :
+                    <RingLoader
+                    className='ml-44'
+                    size={60}
+                    color={'#ffffff'}
+                    loading={loading}
+                    />
+                  }
               </div>
         </section>
 
