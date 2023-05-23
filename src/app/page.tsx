@@ -36,8 +36,6 @@ export default function Home() {
     _id: "",
   });
   
-  const tagCard: string[] = ['Spell_traps', 'Monster', 'Dragons', 'Magic', 'Exodia'];
-
   const pages = Math.ceil(card.length / itemsPerPage);
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -82,6 +80,8 @@ export default function Home() {
     }
   };
 
+  console.log(currentItems)
+
   return (
     <div>
       <header 
@@ -104,17 +104,6 @@ export default function Home() {
         bg-[url('https://bit.ly/3ANfKOQ')]">
         </div>
 
-          {/* <div 
-          className='w-full absolute bottom-0 flex justify-end max-tablet:hidden'>
-            <Image
-            width='200'
-            height='100'
-            placeholder = 'empty'
-            src={mage}
-            alt='mage'
-            />
-          </div> */}
-        
       </header>
 
       <main>
@@ -159,45 +148,18 @@ export default function Home() {
             <div>
               <Chat 
                 text='Logo na seção a seguir se encontra todas as cartas disponíveis
-                ou se preferir, pesquise por alguma carta especifica e ao clicar, podendo visualizar
-                com mais detalhes a carta selecionada.'
+                ou se preferir, pesquise pelo nome por alguma carta específico e ao clicar, podendo visualizar
+                com mais detalhes a carta selecionada. A pesquisa pelo nome deve ser feito em inglês.'
               />
             </div>
 
-            <div className='text-end' dir='rtl'>
-              <Chat 
-                text='?Para que serve a opção "Deck" que se encontra no menu'
-              />
-            </div>
-
-            <div>
-              <Chat 
-                text='Na opção "Deck" do menu, geramos aleatoriamente 50 cartas que
-                simula um Deck. É apenas uma função para 
-                gerar 50 cartas.'
-              />
-            </div>
           </div>
 
 
         </section>
 
         <section className='tablet:flex bgCards overflow-hidden bg-gradient-to-b from-black to-slate-900 border-t-8 border-cyan-900 h-44'>
-              <div className='flex flex-col gap-4 py-2 items-center justify-between bg-gradient-to-t from-cyan-600'>
-                <ul 
-                className='flex gap-2 flex-wrap justify-center'>
-                  {
-                  tagCard.map((item, index) => (
-                    <li 
-                    className='cursor-pointer bg-green-900 rounded-lg p-1 shadow-sm hover:shadow-white text-gray-300'
-                    onClick={()=>setSearch(item)}
-                    key={String(index)}
-                    >
-                      {item}
-                    </li>
-                  ))
-                  }
-                </ul>
+              <div className='relative flex flex-col gap-4 py-2 items-center justify-center bg-gradient-to-t from-cyan-600'>
 
                 <div 
                 className='w-20 h-10 px-2 flex flex-col justify-center items-center gap-5'>
@@ -233,7 +195,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className='flex flex-col items-center'>
+                <div className='flex flex-col items-center absolute bottom-0'>
                   {pages === 1 ? <AiOutlineArrowDown className='animate-bounce' /> : ''}
                   <PaginationCards 
                   setCurrentPage={setCurrentPage}
@@ -256,7 +218,7 @@ export default function Home() {
                           key={String(index)}>
 
                             <Image width='150' height='100' 
-                            src={`${api.defaults.baseURL}/posts/${item.img}`} alt='card' />
+                            src={`${api.defaults.baseURL}/posts/${item.img}`} alt={item.name} />
                           </div>
                         )
                     })}
@@ -273,10 +235,11 @@ export default function Home() {
           <div className='w-10'>
             <h3 className='mb-2'>Contacts</h3>
             <ul className='flex flex-col gap-2 text-gray-300'>
-              <li><a href='#'>Linkedin</a></li>
-              <li><a href='#'>Instagram</a></li>
-              <li><a href='#'>Email</a></li>
-              <li><a href='#'>WhatsApp</a></li>
+              <li><a href='https://www.linkedin.com/in/romeu-soares-87749a231/' target='blank'>Linkedin</a></li>
+              <li><a href='https://github.com/Romeusorionaet' target='blank'>Github</a></li>
+              <li><a href='https://www.instagram.com/romeusoaresdesouto/' target='blank'>Instagram</a></li>
+              <li><a href='mailto:romeusoares14569@gmail.com' target='blank'>Email</a></li>
+              <li><a href='https://wa.me/5584981127596' target='blank'>WhatsApp</a></li>
             </ul>
           </div>
 
