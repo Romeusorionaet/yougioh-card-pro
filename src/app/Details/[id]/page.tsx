@@ -67,13 +67,11 @@ export default function Details({ params }: DetailsProps) {
 
       },[nameImgFormatted]);
 
-      console.log(cardInfo)
-
     return(
         <div className="bg-slate-900 max-tablet:pt-22 pt-28 min-h-screen flex items-center justify-center">
 
             {cardInfo && 
-              cardInfo.map((card)=>{
+              cardInfo.map(card =>{
                 return(
                   <div className="pb-1 tablet:flex relative" key={String(card.id)}>
                     <Link 

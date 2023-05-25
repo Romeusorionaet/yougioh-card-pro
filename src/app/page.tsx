@@ -2,18 +2,19 @@
 
 import { AiOutlineArrowDown } from 'react-icons/ai';
 import Image from 'next/image';
-import DragonLogo from '../../public/imgHeader/DrgaonLogo.png';
 import EyeBall from '../../public/eyeball.png';
 import CardMolduraSearch from '../../public/molduraCardForSearchBottom.png';
 
 import { Chat } from './components/Chat';
 import { PaginationCards } from './components/PaginationCards';
+import { Footer } from './components/Footer';
 import { api } from './services/api';
 
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 
 import {RingLoader} from 'react-spinners';
+import { Header } from './components/Header';
 
 interface CardDetailsProps {
   name: string;
@@ -93,27 +94,8 @@ export default function Home() {
 
   return (
     <div>
-      <header 
-      className="
-      flex flex-col items-center justify-center gap-1
-      h-screen pt-20 bg-slate-900 
-      ">
-       
-        <Image
-        width='300'
-        height='100'
-        placeholder = 'empty'
-        priority={true}
-        src={DragonLogo}
-        alt='Dragon blue'
-        />
-
-        <div 
-        className="bg-bottom bg-no-repeat h-5 w-15 bg-contain bg-blue-900/20 rounded-e-full
-        bg-[url('https://bit.ly/3ANfKOQ')]">
-        </div>
-
-      </header>
+      
+      <Header />
 
       <main>
 
@@ -168,7 +150,7 @@ export default function Home() {
         </section>
 
         <section className='tablet:flex bgCards overflow-hidden bg-gradient-to-b from-black to-slate-900 border-t-8 border-cyan-900 h-44'>
-              <div className='relative flex flex-col gap-4 py-2 items-center justify-center bg-gradient-to-t from-cyan-600'>
+              <div className='relative max-tablet:h-20 min-tablet:w-30 flex flex-col gap-4 py-2 items-center justify-center bg-gradient-to-t from-cyan-600'>
 
                 <div 
                 className='w-20 h-10 px-2 flex flex-col justify-center items-center gap-5'>
@@ -216,15 +198,15 @@ export default function Home() {
 
               <div 
                 ref={listaRef}
-                className='flex gap-2 flex-wrap justify-center items-center tablet:p-5 py-1 h-25 tablet:h-full overflow-auto scrollbar'>
+                className='flex gap-2 flex-wrap justify-center items-center tablet:p-5 py-1 h-32 tablet:h-full overflow-auto scrollbar'>
 
                     {currentItems.length !== 0 ?
-                      currentItems.map((item: any, index: number)=>{
+                      currentItems.map((item: any)=>{
                         return(
                           <div
                           onClick={()=>handleCardDetails(item._id, false)}
                           className='item flex flex-col' 
-                          key={String(index)}>
+                          key={item._id}>
 
                             <Image width='150' height='100' 
                             src={`${api.defaults.baseURL}/posts/${item.img}`} alt={item.name} />
@@ -233,7 +215,7 @@ export default function Home() {
                     })
                     :
                     <RingLoader
-                    className='ml-44'
+                    className='tablet:ml-44'
                     size={60}
                     color={'#ffffff'}
                     loading={loading}
@@ -244,33 +226,7 @@ export default function Home() {
 
       </main>
 
-      <footer 
-      className='bg-gradient-to-b from-black to-slate-900 border-t-8 border-cyan-900 pb-10'>
-        <nav 
-        className='flex gap-10 justify-around p-2 border-double border-b-4 border-sky-900'>
-
-          <div className='w-10'>
-            <h3 className='mb-2'>Contacts</h3>
-            <ul className='flex flex-col gap-2 text-gray-300'>
-              <li><a href='https://www.linkedin.com/in/romeu-soares-87749a231/' target='blank'>Linkedin</a></li>
-              <li><a href='https://github.com/Romeusorionaet' target='blank'>Github</a></li>
-              <li><a href='https://www.instagram.com/romeusoaresdesouto/' target='blank'>Instagram</a></li>
-              <li><a href='mailto:romeusoares14569@gmail.com' target='blank'>Email</a></li>
-              <li><a href='https://wa.me/5584981127596' target='blank'>WhatsApp</a></li>
-            </ul>
-          </div>
-
-          <div className='w-10'>
-            <h3 className='mb-2'>API</h3>
-            <ul className='flex flex-col gap-2 text-sm text-gray-300'>
-              <li><a href='https://ygoprodeck.com/api-guide/' target='blank'>Direitos autorais de YGOPRODeck.com</a></li>
-              <li><span>API Changelog v7</span></li>
-            </ul>
-          </div>
-
-        </nav>
-      </footer>
-     
+      <Footer />
     </div>
   )
 }
