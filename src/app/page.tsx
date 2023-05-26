@@ -99,20 +99,18 @@ export default function Home() {
 
       <main>
 
-        <div className='flex justify-center py-20 bg-gradient-to-b from-slate-900 to-black'>
+        <div className='flex justify-center py-20 bg-gradient-to-b from-slate-900 via-orange-300 to-black'>
           <Image
-          width='120'
-          height='100'
-          placeholder = 'empty'
+          className='w-5 h-5 tablet:w-10 tablet:h-10'
           src={EyeBall}
           alt='background ball eyes yougioh'
           />
         </div>
 
         <section 
-        className="pb-10 max-w-screen overflow-auto scrollbar 
-        bg-gradient-to-b from-black to-black 
-        ">
+          className="pb-10 max-w-screen overflow-auto scrollbar 
+          bg-gradient-to-b from-black to-slate-900"
+        >
           <div className=''>
 
             <div>
@@ -139,7 +137,7 @@ export default function Home() {
             <div>
               <Chat 
                 text='Logo na seção a seguir se encontra todas as cartas disponíveis
-                ou se preferir, pesquise pelo nome por alguma carta específico e ao clicar, podendo visualizar
+                ou se preferir, pesquise pelo nome por alguma carta (específico) e ao clicar, podendo visualizar
                 com mais detalhes a carta selecionada. A pesquisa pelo nome deve ser feito em inglês.'
               />
             </div>
@@ -150,7 +148,7 @@ export default function Home() {
         </section>
 
         <section className='tablet:flex bgCards overflow-hidden bg-gradient-to-b from-black to-slate-900 border-t-8 border-cyan-900 h-44'>
-              <div className='relative max-tablet:h-20 min-tablet:w-30 flex flex-col gap-4 py-2 items-center justify-center bg-gradient-to-t from-cyan-600'>
+              <div className='relative max-tablet:h-20 flex flex-col gap-4 px-4 items-center justify-center bg-gradient-to-t from-cyan-600'>
 
                 <div 
                 className='w-20 h-10 px-2 flex flex-col justify-center items-center gap-5'>
@@ -186,19 +184,21 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className='flex flex-col items-center absolute bottom-0'>
-                  {pages === 1 ? <AiOutlineArrowDown className='animate-bounce' /> : ''}
-                  <PaginationCards 
-                  setCurrentPage={setCurrentPage}
-                  pages={pages}
-                  setValueToScroll={setValueToScroll}
-                  />
+                <div className='absolute bottom-4'>
+                  <div className='flex flex-col items-center tablet:w-22'>
+                    {pages === 1 ? <AiOutlineArrowDown className='animate-bounce' /> : ''}
+                    <PaginationCards 
+                    setCurrentPage={setCurrentPage}
+                    pages={pages}
+                    setValueToScroll={setValueToScroll}
+                    />
+                  </div>
                 </div>
               </div>
 
               <div 
                 ref={listaRef}
-                className='flex gap-2 flex-wrap justify-center items-center tablet:p-5 py-1 h-32 tablet:h-full overflow-auto scrollbar'>
+                className='flex gap-2 flex-wrap justify-center items-center tablet:p-5 py-1 h-22 tablet:h-full overflow-auto scrollbar'>
 
                     {currentItems.length !== 0 ?
                       currentItems.map((item: any)=>{
