@@ -82,6 +82,7 @@ export default function Details({ params }: DetailsProps) {
                     <div className="tablet:w-28 h-34">
                     {cardDetails.img &&
                       <Image 
+                      priority
                       className="p-2 h-full w-full"
                       width='300'
                       height='100'

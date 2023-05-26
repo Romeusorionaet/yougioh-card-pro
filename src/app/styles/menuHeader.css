@@ -23,6 +23,6 @@
     }
     
     .CARD-MENU-BLACK-HOLE {
-        @apply h-5 w-5 z-10
+        @apply h-4 w-4 z-10 mr-5
     }
 }

@@ -208,7 +208,9 @@ export default function Home() {
                           className='item flex flex-col' 
                           key={item._id}>
 
-                            <Image width='150' height='100' 
+                            <Image 
+                            className='w-auto h-auto'
+                            width='120' height='100' 
                             src={`${api.defaults.baseURL}/posts/${item.img}`} alt={item.name} />
                           </div>
                         )

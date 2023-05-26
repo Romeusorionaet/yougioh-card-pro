@@ -56,7 +56,7 @@ export default function RootLayout({
 
           <div className='relative w-screen'>
             <input 
-            className='h-4 w-4 absolute right-6 top-6 z-20 opacity-0'
+            className='h-4 w-4 absolute right-5 top-8 z-20 opacity-0'
             type='checkbox'
             onClick={handleChangeValue}
             />
@@ -67,16 +67,13 @@ export default function RootLayout({
             <div className={widthScreen >= 800 ? 'hidden' : 'CARD-MENU-BLACK-HOLE'}>
               {checkMenuMobile === false ?
                 <Image 
-                width='50'
-                height='50'
-                className='ease-in duration-500 animate-pulse-slow '
+                priority
+                className='ease-in duration-500 animate-pulse-slow'
                 src={CardFaceDown}
                 alt='Yougioh card facing down'
                 />
               :
                 <Image
-                width='50'
-                height='50'
                 className=' shadow-xl shadow-cyan-900/100 ease-in duration-500'
                 src={blackHoleCard}
                 alt='Yougioh card black hole'

@@ -44,6 +44,6 @@ li:active {
   .cardTags > li > span{
     background: #20224A;
     border-radius: 10%;
-    padding: 2px;
+    padding: 4px;
   }
 }
