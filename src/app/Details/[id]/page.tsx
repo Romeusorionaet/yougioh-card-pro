@@ -5,6 +5,8 @@ import { api } from '../../services/api';
 import Image from 'next/image';
 import Link from "next/link";
 
+import { RingLoader } from 'react-spinners';
+
 interface DetailsProps {
     params: {
         id: string;
@@ -40,6 +42,8 @@ export default function Details({ params }: DetailsProps) {
     const nameImgFormatted = cardDetails.name.replace(/\.jpg$/, '');
     const [cardInfo, setCardInfo] = useState<CardInfoProps>();
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(()=>{
         async function handleCard() {
           if(!cardInfo){
@@ -67,10 +71,18 @@ export default function Details({ params }: DetailsProps) {
 
       },[nameImgFormatted]);
 
+      useEffect(()=>{
+        if(cardInfo){
+          setLoading(true)
+        }else{
+          setLoading(false)
+        }
+      },[cardInfo]);
+
     return(
         <div className="bg-slate-900 max-tablet:pt-22 pt-28 min-h-screen flex items-center justify-center">
 
-            {cardInfo && 
+            {cardInfo ? 
               cardInfo.map(card =>{
                 return(
                   <div className="pb-1 tablet:flex relative" key={String(card.id)}>
@@ -113,6 +125,12 @@ export default function Details({ params }: DetailsProps) {
                   </div>
                 )
               })
+              : 
+              <RingLoader
+              size={60}
+              color={'#ffffff'}
+              loading={loading}
+              />
             }
         </div>
     )

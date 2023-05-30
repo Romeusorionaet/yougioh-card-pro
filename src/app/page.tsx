@@ -90,7 +90,7 @@ export default function Home() {
     }else{
       setLoading(false)
     }
-  },[currentItems])
+  },[currentItems]);
 
   return (
     <div>
