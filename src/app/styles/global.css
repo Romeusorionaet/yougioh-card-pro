@@ -7,7 +7,8 @@
 }
 
 body {
-    @apply h-screen text-white
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 li {

@@ -13,7 +13,7 @@ import { api } from './services/api';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 
-import {RingLoader} from 'react-spinners';
+import { RingLoader } from 'react-spinners';
 import { Header } from './components/Header';
 
 interface CardDetailsProps {

@@ -2,17 +2,23 @@
 
 import './styles/global.css';
 import './styles/menuHeader.css';
+import { Poppins } from 'next/font/google'
 import Link from 'next/link';
 import Image from 'next/image';
 import CardFaceDown from '../../public/imgHeader/YougiohCardFaceDown.jpg';
 import blackHoleCard from '../../public/imgHeader/blackHoleCard.png';
 
+const poppins = Poppins({ 
+  subsets: ['latin'], 
+  weight: '300'
+})
+
 import { useState, useEffect } from 'react';
 
-// export const metadata = {
-//   title: 'Yougioh-Card',
-//   description: 'Create for to show the interesting world of Yougioh',
-// }
+export const metadata = {
+  title: 'Yougioh-Card',
+  description: 'Create for to show the interesting world of Yougioh',
+}
 
 export default function RootLayout({
   children,
@@ -49,7 +55,8 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      
+      <body className={`${poppins.className} text-white`}>
 
         <nav 
         className='fixed z-10'>

@@ -6,7 +6,7 @@ import mage from '../../../public/mage-bg.png'
 
 export default function About() {
     return(
-        <div className='relative bg-gradient-to-b from-black to-slate-900 flex flex-col items-center'>
+        <div className='relative bg-slate-900 flex flex-col items-center'>
             <div className='max-h-15 tablet:h-screen'>
                 <Image
                 className='tablet:h-full opacity-[.4]'
