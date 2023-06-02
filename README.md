@@ -15,7 +15,7 @@ Bem-vindo! Prepare-se para mergulhar em um mundo repleto de cartas fascinantes! 
 
 <div align='center'>
 
-[😀=> Yougioh Cards pro <=😀](https://todo-list-murex-iota.vercel.app)
+<a href='https://yougioh-card-pro.vercel.app'>😀=> Yougioh Cards pro <=😀</a>
 
 </div>
 
