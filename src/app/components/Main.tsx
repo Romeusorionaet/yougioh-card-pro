@@ -32,13 +32,7 @@ export function Main() {
 
   const [card, setCard] = useState<[]>([])
   const [itemsPerPage] = useState<number>(50)
-  const [currentPage, setCurrentPage] = useState(() => {
-    const gettingLocalOfCurrentPageSaved = localStorage.getItem(
-      '@yougiohLocalCurrentPage',
-    )
-
-    return Number(gettingLocalOfCurrentPageSaved)
-  })
+  const [currentPage, setCurrentPage] = useState<number>(0)
   console.log(currentPage)
 
   const { push } = useRouter()

@@ -15,7 +15,7 @@ Bem-vindo! Prepare-se para mergulhar em um mundo repleto de cartas fascinantes! 
 
 <div align='center'>
 
-<a href='https://yougioh-card-pro.vercel.app'>😀=> Yougioh Cards pro <=😀</a>
+<a href='https://yougioh-card-pro.vercel.app' target='blank'>😀=> Yougioh Cards pro <=😀</a>
 
 </div>
 

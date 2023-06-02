@@ -11,15 +11,10 @@ export function PaginationCards({
   setCurrentPage,
   setValueToScroll,
 }: Props) {
-  function saveLocalCurrentPage(value: number) {
-    return localStorage.setItem('@yougiohLocalCurrentPage', String(value))
-  }
-
   return (
     <div>
       <Pagination
         onChange={(E, P) => {
-          saveLocalCurrentPage(P)
           setCurrentPage(P)
           setValueToScroll(true)
         }}
