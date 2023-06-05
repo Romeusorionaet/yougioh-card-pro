@@ -21,9 +21,6 @@ interface CardDetailsProps {
 }
 
 export function Main() {
-  //   const gettingLocalCurrentPageSaved = localStorage.getItem(
-  //     '@yougiohLocalCurrentPage',
-  //   )
   const [loading, setLoading] = useState(true)
 
   const [search, setSearch] = useState<string>('')
@@ -32,8 +29,13 @@ export function Main() {
 
   const [card, setCard] = useState<[]>([])
   const [itemsPerPage] = useState<number>(50)
-  const [currentPage, setCurrentPage] = useState<number>(0)
-  console.log(currentPage)
+  const [currentPage, setCurrentPage] = useState<number>(() => {
+    const currentPageSaved =
+      typeof window !== 'undefined'
+        ? localStorage.getItem('@yougiohLocalCurrentPage')
+        : 0
+    return Number(currentPageSaved)
+  })
 
   const { push } = useRouter()
   const [cardDetails, setCardDetails] = useState<CardDetailsProps>({
@@ -57,10 +59,6 @@ export function Main() {
     }
     searchCard()
   }, [search])
-
-  useEffect(() => {
-    setCurrentPage(0)
-  }, [itemsPerPage])
 
   useEffect(() => {
     setValueToScroll(false)
@@ -95,8 +93,6 @@ export function Main() {
     }
   }, [currentItems])
 
-  console.log(currentPage)
-
   return (
     <main>
       <div className="flex justify-center py-20 bg-gradient-to-b from-slate-900 via-orange-300 to-black">
@@ -109,7 +105,7 @@ export function Main() {
 
       <section
         className="pb-10 max-w-screen overflow-auto scrollbar 
-          bg-gradient-to-b from-black to-slate-900"
+          bg-gradient-to-b from-black to-slate-900 max-MineMobile:text-xs"
       >
         <div className="">
           <div>
@@ -184,6 +180,7 @@ export function Main() {
                 setCurrentPage={setCurrentPage}
                 pages={pages}
                 setValueToScroll={setValueToScroll}
+                currentPage={currentPage}
               />
             </div>
           </div>
