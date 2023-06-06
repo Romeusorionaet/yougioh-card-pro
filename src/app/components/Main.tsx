@@ -140,7 +140,7 @@ export function Main() {
           <div className="w-20 h-10 px-2 flex flex-col justify-center items-center gap-5">
             {(cardDetails && cardDetails.name === '') ||
             window.innerWidth <= 800 ? (
-              <p className="text-gray-400"> Choose a card </p>
+              <p className="text-gray-200"> Choose a card </p>
             ) : (
               <div onClick={() => handleCardDetails(cardDetails._id, true)}>
                 <Image

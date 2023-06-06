@@ -22,7 +22,10 @@ export function ContentForPaginationCards({
   useEffect(() => {
     const current = localStorage.getItem('@yougiohLocalCurrentPage')
     setGettingLocalCurrentPageSaved(Number(current))
-    setCurrentPage(Number(current) - 1)
+
+    if (current) {
+      return setCurrentPage(Number(current) - 1)
+    }
   }, [currentPage, setCurrentPage])
 
   return (
