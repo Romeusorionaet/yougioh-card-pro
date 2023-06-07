@@ -19,9 +19,7 @@ interface CardDetailsProps {
 }
 
 interface CardInfoProps {
-  map(
-    arg0: (item: any) => import('react').JSX.Element,
-  ): import('react').ReactNode
+  map: any
   id: number
   archetype: string
   desc: string
@@ -36,7 +34,7 @@ interface CardInfoProps {
   atk: number
   def: number
 
-  card_sets?: [set_rarity: string]
+  card_sets?: [set_rarity: any]
 }
 
 export default function Details({ params }: DetailsProps) {
@@ -89,7 +87,7 @@ export default function Details({ params }: DetailsProps) {
   return (
     <div className="bg-slate-900 max-tablet:pt-22 pt-28 min-h-screen flex items-center justify-center">
       {cardInfo ? (
-        cardInfo.map((card) => {
+        cardInfo.map((card: CardInfoProps) => {
           return (
             <div className="pb-1 tablet:flex relative" key={String(card.id)}>
               <Link href="/" className="absolute -top-10 left-2">
@@ -116,7 +114,6 @@ export default function Details({ params }: DetailsProps) {
                 <ul className="cardTags space-y-2 bg-slate-900 p-2 rounded-sm">
                   {card.archetype ? (
                     <li>
-                      {' '}
                       Archetype: <span>{card.archetype}</span>
                     </li>
                   ) : (
@@ -124,7 +121,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.frameType ? (
                     <li>
-                      {' '}
                       FrameType: <span>{card.frameType}</span>
                     </li>
                   ) : (
@@ -132,7 +128,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.race ? (
                     <li>
-                      {' '}
                       Race: <span>{card.race}</span>
                     </li>
                   ) : (
@@ -140,7 +135,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.type ? (
                     <li>
-                      {' '}
                       Type: <span>{card.type}</span>
                     </li>
                   ) : (
@@ -148,7 +142,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.atk ? (
                     <li>
-                      {' '}
                       Atk: <span>{card.atk}</span>
                     </li>
                   ) : (
@@ -156,7 +149,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.def ? (
                     <li>
-                      {' '}
                       Def: <span>{card.def}</span>
                     </li>
                   ) : (
@@ -164,7 +156,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.level ? (
                     <li>
-                      {' '}
                       Level: <span>{card.level}</span>
                     </li>
                   ) : (
@@ -172,7 +163,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.scale ? (
                     <li>
-                      {' '}
                       Scale: <span>{card.scale}</span>
                     </li>
                   ) : (
@@ -180,7 +170,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.attribute ? (
                     <li>
-                      {' '}
                       Attribute: <span>{card.attribute}</span>
                     </li>
                   ) : (
@@ -188,7 +177,6 @@ export default function Details({ params }: DetailsProps) {
                   )}
                   {card.card_sets ? (
                     <li>
-                      {' '}
                       Rarity: <span>{card.card_sets[0].set_rarity}</span>
                     </li>
                   ) : (

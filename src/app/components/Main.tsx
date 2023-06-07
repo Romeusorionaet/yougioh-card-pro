@@ -191,7 +191,7 @@ export function Main() {
           className="flex gap-2 flex-wrap justify-center items-center tablet:p-5 py-1 h-22 tablet:h-full overflow-auto scrollbar"
         >
           {currentItems.length !== 0 ? (
-            currentItems.map((item: any) => {
+            currentItems.map((item: CardDetailsProps) => {
               return (
                 <div
                   onClick={() => handleCardDetails(item._id, false)}

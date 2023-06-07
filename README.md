@@ -3,7 +3,7 @@
 <br />
 
 >📃 
-Bem-vindo! Prepare-se para mergulhar em um mundo repleto de cartas fascinantes! Nosso site oferece um catálogo abrangente de cartas de de Yougioh.
+Bem-vindo! Prepare-se para mergulhar em um mundo repleto de cartas fascinantes! Nosso site oferece um catálogo abrangente de cartas de Yougioh.
 
 <br />
 
@@ -22,7 +22,7 @@ Bem-vindo! Prepare-se para mergulhar em um mundo repleto de cartas fascinantes! 
 <br />
 <hr />
 
->📃 aqui você tabém pode pesquisar pelo nome de alguma carta (específico) e ao clicar, podendo visualizar com mais detalhes a carta selecionada. A pesquisa pelo nome deve ser feito em inglês.
+>📃 aqui você também pode pesquisar pelo nome de alguma carta (específico) e ao clicar, podendo visualizar com mais detalhes a carta selecionada. A pesquisa pelo nome deve ser feito em inglês.
 
 <br />
 
