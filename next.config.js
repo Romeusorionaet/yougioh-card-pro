@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'yougioh-api-cards-production.up.railway.app',
+        hostname: 'https://yougioh-api-cards.onrender.com',
         port: '',
         pathname: '/**',
       },
